@@ -1,0 +1,40 @@
+#navbar {
+  height: 60px;
+  background-color: var(--clr-above-backgrond);
+//border-bottom: 1px solid var(--clr-outline);
+
+  padding: 15px 20px;
+}
+#navbar-inner {
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+}
+
+#navbar #logo {
+  align-self: start;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#navbar #logo img {
+  height: 100%;
+}
+
+/* --- containers --- */
+
+.view-container {
+//border-bottom: 1px solid var(--clr-outline);
+}
+
+.view-header {
+  background-color: var(--clr-above-backgrond);
+  border-bottom: 1px solid var(--clr-outline);
+  padding: 10px;
+  font-size: 130%;
+}
+.view-container:not(:first-child) .view-header {
+  border-top: 1px solid var(--clr-outline);
+}

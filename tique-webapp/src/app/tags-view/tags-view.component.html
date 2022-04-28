@@ -1,0 +1,7 @@
+<div id="container">
+  <!--<div class="tag-card" matRipple *ngFor="let tag of tags" [matTooltip]="tag.name">
+    <img class="tag-card-icon" [src]="tag.icon">
+    <div class="tag-card-name">{{tag.name}}</div>
+  </div>-->
+  <img *ngFor="let tag of tags" class="tag-card" matRipple [matTooltip]="tag.name" [src]="tag.icon">
+</div>
