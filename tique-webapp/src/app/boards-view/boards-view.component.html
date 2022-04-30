@@ -1,5 +1,22 @@
+<div id="filter-header" [class.hidden]="filterTags.length == 0">
+  <mat-icon>filter_alt</mat-icon>
+  <span>Filtering <b>{{filterTags.length}}</b> tags.</span>
+
+  <div class="vertical-rule"></div>
+
+  <mat-button-toggle-group (change)="applyFilter(filteringMethod.value)" #filteringMethod="matButtonToggleGroup" value="exclusive" id="filtering-method-toggle">
+    <mat-button-toggle value="exclusive">Exclusive</mat-button-toggle>
+    <mat-button-toggle value="joined">Joined</mat-button-toggle>
+  </mat-button-toggle-group>
+  <mat-icon id="filter-method-help" matTooltip="Exclusive: Only show boards that have all filter tags. Joined: Show boards that have one or more of the filter tags.">info</mat-icon>
+
+  <div class="vertical-rule"></div>
+
+  <button mat-icon-button (click)="clearFilter()"><mat-icon>filter_alt_off</mat-icon></button>
+</div>
+
 <div id="container">
-  <div class="board-card" matRipple *ngFor="let board of boards">
+  <div class="board-card" matRipple *ngFor="let board of displayBoards">
     <div class="board-card-name">{{board.name}}</div>
     <svg
       class="board-ticker"

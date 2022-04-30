@@ -47,3 +47,35 @@
   border-radius: 10px;
   margin: 5px;
 }
+
+/* filter */
+
+#filter-header {
+  background-color: var(--clr-above-backgrond);
+  border-bottom: 1px solid var(--clr-outline);
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#filter-header span {
+  padding: 10px 5px;
+  height: 100%;
+}
+
+.vertical-rule {
+  border-right: 1px solid var(--clr-outline);
+  width: 1px;
+  height: 20px;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+#filtering-method-toggle {
+  margin: 10px 5px;
+}
+
+#filter-method-help {
+  color: grey;
+}

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Tag} from "../data.service";
 
 @Component({
@@ -8,4 +8,16 @@ import {Tag} from "../data.service";
 })
 export class TagsViewComponent {
   @Input() tags: Tag[] = [];
+  @Output("filterTags") filterTagsEvent: EventEmitter<Tag[]> = new EventEmitter<Tag[]>();
+
+  @Input("filterTags") filterTags: Tag[] = [];
+
+  toggleFilterTag(tag: Tag) {
+    if(this.filterTags.includes(tag)) {
+      this.filterTags.splice(this.filterTags.indexOf(tag), 1);
+    } else {
+      this.filterTags.push(tag);
+    }
+    this.filterTagsEvent.emit(this.filterTags);
+  }
 }

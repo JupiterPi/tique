@@ -12,6 +12,8 @@ export class AppComponent implements OnInit {
   tags: Tag[] = [];
   boards: Board[] = [];
 
+  filterTags: Tag[] = [];
+
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
@@ -21,5 +23,12 @@ export class AppComponent implements OnInit {
         this.boards = boards;
       });
     });
+  }
+
+  updateFilterTags($event: Tag[]) {
+    this.filterTags = [];
+    for (let tag of $event) {
+      this.filterTags.push(tag);
+    }
   }
 }

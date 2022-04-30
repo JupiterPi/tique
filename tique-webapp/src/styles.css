@@ -2,6 +2,7 @@
   --clr-background: #dcdcdc;
   --clr-above-backgrond: #f3f3f3;
   --clr-outline: #ababab;
+  --clr-outline-emp: #232323;
 }
 
 html, body {
@@ -11,4 +12,8 @@ html, body {
 body {
   margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: var(--clr-background);
+}
+
+.hidden {
+  display: none !important;
 }
