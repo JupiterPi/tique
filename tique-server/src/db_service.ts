@@ -13,6 +13,7 @@ export class Board {
         public name: string,
         public total: number,
         public progress: number,
+        public tags: string[],
         public id?: mongoDB.ObjectId
     ) {}
 }

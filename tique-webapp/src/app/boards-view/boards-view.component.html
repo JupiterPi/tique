@@ -39,7 +39,7 @@
       </g>
     </svg>
     <div class="board-card-tags">
-        <img class="board-card-tag" *ngFor="let tag of board.tags" [src]="tag.icon" [alt]="tag.name" [matTooltip]="tag.name">
+      <img class="board-card-tag" *ngFor="let tag of getTags(board.tags)" [src]="tag.icon" [alt]="tag.name" [matTooltip]="tag.name">
     </div>
   </div>
 </div>

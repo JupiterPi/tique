@@ -7,6 +7,10 @@ const port = 63107;
 
 app.use(express.json());
 
+/* static files */
+
+app.use(express.static("dist/tique-webapp"));
+
 /* api */
 
 const db = require("./db_service");
