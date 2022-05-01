@@ -1,4 +1,5 @@
 import * as mongoDB from "mongodb";
+const fs = require("fs");
 
 export class Tag {
     constructor(
@@ -24,7 +25,8 @@ export const collections: {
 } = {};
 
 export async function connectToDatabase() {
-    const client: mongoDB.MongoClient = new mongoDB.MongoClient("mongodb://localhost");
+    const connectionUrl = fs.readFileSync("mongodb_connect_url.txt").toString();
+    const client: mongoDB.MongoClient = new mongoDB.MongoClient(connectionUrl);
     await client.connect();
     const db: mongoDB.Db = client.db("tique");
     collections.tagsCollection = db.collection("tags");
