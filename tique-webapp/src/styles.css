@@ -1,5 +1,6 @@
 :root {
   --clr-background: #dcdcdc;
+  --clr-background-darker: #bebebe;
   --clr-above-backgrond: #f3f3f3;
   --clr-outline: #ababab;
   --clr-outline-emp: #232323;
@@ -16,4 +17,8 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+.font-mat-icon {
+  font-family: Material Icons, serif;
 }

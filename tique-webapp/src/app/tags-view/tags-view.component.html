@@ -3,5 +3,30 @@
     <img class="tag-card-icon" [src]="tag.icon">
     <div class="tag-card-name">{{tag.name}}</div>
   </div>-->
-  <img *ngFor="let tag of tags" class="tag-card" matRipple [matTooltip]="tag.name" [src]="tag.icon" (click)="toggleFilterTag(tag)" [class.selected]="filterTags.includes(tag)">
+  <div *ngFor="let tag of tags" class="tag-card-container" (click)="toggleFilterTag(tag)">
+    <img class="tag-card" [src]="tag.icon" [class.selected]="filterTags.includes(tag)">
+    <div class="tag-card-over-container" [matTooltip]="tag.name">
+      <div class="tag-card-over tag-card-over-filter" *ngIf="!filterTags.includes(tag)">
+        <mat-icon *ngIf="filterTags.length == 0">filter_alt</mat-icon>
+        <mat-icon *ngIf="filterTags.length > 0">add</mat-icon>
+      </div>
+      <div class="tag-card-over tag-card-over-filter" *ngIf="filterTags.includes(tag)">
+        <mat-icon *ngIf="filterTags.length == 1">filter_alt_off</mat-icon>
+        <mat-icon *ngIf="filterTags.length > 1">remove</mat-icon>
+      </div>
+
+      <button class="tag-card-over tag-card-over-edit" (click)="editTag(tag); $event.stopPropagation();" matRipple>
+        <span class="font-mat-icon">edit</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="tag-card-container tag-card-add-container" (click)="createNewTag(); tagCardAddRipple.launch({centered: true});">
+    <div class="tag-card tag-card-add" matRipple #tagCardAddRipple="matRipple"></div>
+    <div class="tag-card-over-container">
+      <div class="tag-card-over tag-card-over-filter tag-card-over-add">
+        <mat-icon>add</mat-icon>
+      </div>
+    </div>
+  </div>
 </div>

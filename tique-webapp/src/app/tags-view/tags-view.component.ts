@@ -20,4 +20,12 @@ export class TagsViewComponent {
     }
     this.filterTagsEvent.emit(this.filterTags);
   }
+
+  editTag(tag: Tag) {
+    console.log("edit tag: " + tag.name);
+  }
+
+  createNewTag() {
+    console.log("create new tag");
+  }
 }
