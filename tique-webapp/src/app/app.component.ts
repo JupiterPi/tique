@@ -17,11 +17,15 @@ export class AppComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.dataService.getTags().subscribe((tags) => {
-      this.tags = tags;
-      this.dataService.getBoards().subscribe((boards) => {
-        this.boards = boards;
-      });
+    this.dataService.refreshHook.subscribe({
+      next: () => {
+        this.dataService.getTags().subscribe((tags) => {
+          this.tags = tags;
+          this.dataService.getBoards().subscribe((boards) => {
+            this.boards = boards;
+          });
+        });
+      }
     });
   }
 

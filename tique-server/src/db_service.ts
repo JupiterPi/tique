@@ -5,7 +5,7 @@ export class Tag {
     constructor(
         public name: string,
         public icon: string,
-        public id?: mongoDB.ObjectId
+        public _id?: mongoDB.ObjectId
     ) {}
 }
 
@@ -15,7 +15,7 @@ export class Board {
         public total: number,
         public progress: number,
         public tags: string[],
-        public id?: mongoDB.ObjectId
+        public _id?: mongoDB.ObjectId
     ) {}
 }
 

@@ -4,7 +4,7 @@
     <div class="tag-card-name">{{tag.name}}</div>
   </div>-->
   <div *ngFor="let tag of tags" class="tag-card-container" (click)="toggleFilterTag(tag)">
-    <img class="tag-card" [src]="tag.icon" [class.selected]="filterTags.includes(tag)">
+    <img class="tag-card" [src]="dataService.getUserImageUrl(tag.icon)" [class.selected]="filterTags.includes(tag)">
     <div class="tag-card-over-container" [matTooltip]="tag.name">
       <div class="tag-card-over tag-card-over-filter" *ngIf="!filterTags.includes(tag)">
         <mat-icon *ngIf="filterTags.length == 0">filter_alt</mat-icon>

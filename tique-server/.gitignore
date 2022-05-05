@@ -4,3 +4,4 @@ dist
 node_modules
 
 mongodb_connect_url.txt
+user_images

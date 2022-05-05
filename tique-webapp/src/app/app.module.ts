@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule} from "@angular/router";
-import { TagsViewComponent } from './tags-view/tags-view.component';
+import {TagsViewComponent} from './tags-view/tags-view.component';
 import { BoardsViewComponent } from './boards-view/boards-view.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
@@ -15,12 +15,17 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
+import {MatDialogModule} from "@angular/material/dialog";
+import {TagEditDialogComponent} from "./tag-edit-dialog/tag-edit-dialog.component";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
   declarations: [
     AppComponent,
     TagsViewComponent,
     BoardsViewComponent,
+    TagEditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,10 @@ import {FormsModule} from "@angular/forms";
     MatButtonToggleModule,
     MatIconModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

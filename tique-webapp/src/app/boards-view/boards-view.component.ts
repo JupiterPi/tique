@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild} from '@angular/core';
-import {Board, Tag} from "../data.service";
+import {Board, DataService, Tag} from "../data.service";
 
 type FilteringMethod = "exclusive" | "joined";
 
@@ -16,6 +16,8 @@ export class BoardsViewComponent implements OnChanges {
   @Output("clearFilter") clearFilterEvent: EventEmitter<void> = new EventEmitter<void>();
   @Input() filterTags: Tag[] = [];
   filteringMethod: FilteringMethod = "exclusive";
+
+  constructor(public dataService: DataService) {}
 
   applyFilter(filteringMethod: string) {
     this.filteringMethod = filteringMethod as FilteringMethod;

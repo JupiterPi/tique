@@ -1,0 +1,27 @@
+<h2 mat-dialog-title *ngIf="data.createNew">Creating new tag</h2>
+<h2 mat-dialog-title *ngIf="!data.createNew">Editing {{previousName}}</h2>
+<mat-dialog-content class="mat-typography">
+  <form>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="name" name="name">
+    </mat-form-field>
+
+    <input type="file" (change)="onFileSelected($event)" #iconUpload>
+    <div class="tag-card-container" [class.tag-card-add-container]="data.createNew" (click)="iconUpload.click(); tagCardAddRipple.launch({centered: true});">
+      <img *ngIf="!iconUnset" class="tag-card" [src]="dataService.getUserImageUrl(icon)">
+      <div class="tag-card" [class.tag-card-add]="iconUnset" matRipple #tagCardAddRipple="matRipple"></div>
+      <div class="tag-card-over-container">
+        <div class="tag-card-over tag-card-over-filter" [class.tag-card-over-add]="iconUnset">
+          <mat-icon>file_upload</mat-icon>
+        </div>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="warn" mat-dialog-close="delete" *ngIf="!data.createNew">Delete</button>
+  <button mat-button mat-dialog-close="cancel">Cancel</button>
+  <button [disabled]="!validateInput()" mat-stroked-button [mat-dialog-close]="assembleTag()">{{data.createNew ? "Create" : "Save"}}</button>
+</mat-dialog-actions>
