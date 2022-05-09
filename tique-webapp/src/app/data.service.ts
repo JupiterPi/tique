@@ -116,7 +116,7 @@ export class DataService {
     },
     {
       "_id": "626af24e240b5c935f1cd93c",
-      "name": "Board 2",
+      "name": "Board of Truth",
       "progress": 2,
       "tags": [
         "626af1ac240b5c935f1cd930",
@@ -126,7 +126,7 @@ export class DataService {
     },
     {
       "_id": "626af2d4240b5c935f1cd93e",
-      "name": "Board 3",
+      "name": "Board of Longer Name",
       "total": 4,
       "progress": 3,
       "tags": [
@@ -136,7 +136,7 @@ export class DataService {
     },
     {
       "_id": "626af301240b5c935f1cd940",
-      "name": "Board 4",
+      "name": "Angriff der Orks auf unvorbereitete Ordenskrieger",
       "total": 4,
       "progress": 4,
       "tags": [
@@ -228,6 +228,20 @@ export class DataService {
       });
     } else {
       return this.http.post("/board", board, {responseType: "text"});
+    }
+  }
+
+  // POST /tick
+  tickBoard(id: string) {
+    if (isDevMode()) {
+      return new Observable<string>((observer) => {
+        const board = this.devBoards.find(board => board._id == id) as Board;
+        board.progress == board.total
+          ? board.progress = 0
+          : board.progress += 1;
+      });
+    } else {
+      return this.http.post("/tick/" + id, null, {responseType: "text"});
     }
   }
 

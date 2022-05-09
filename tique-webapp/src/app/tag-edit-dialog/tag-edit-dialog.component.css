@@ -64,7 +64,7 @@
   cursor: pointer;
   margin: 0;
   padding: 0;
-  background-color: var(--clr-above-backgrond);
+  background-color: var(--clr-above-background);
   border: 1px solid var(--clr-outline);
   border-radius: 5px;
 
@@ -85,8 +85,8 @@
 /* end of section */
 
 mat-dialog-content {
-  min-width: 400px;
-}
+   min-width: 250px;
+ }
 
 input[type="file"] {
   display: none;

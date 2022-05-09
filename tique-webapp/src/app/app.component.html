@@ -8,10 +8,10 @@
 
 <div id="tags-container" class="view-container">
   <div class="view-header">Tags</div>
-  <app-tags-view [tags]="tags" [filterTags]="filterTags" (filterTags)="updateFilterTags($event)"></app-tags-view>
+  <app-tags-view [tags]="tags" [filterTags]="getFilterTags()" (filterTags)="updateFilterTags($event)"></app-tags-view>
 </div>
 
 <div id="boards-container" class="view-container">
   <div class="view-header">Boards</div>
-  <app-boards-view [tags]="tags" [boards]="boards" [filterTags]="filterTags" (clearFilter)="updateFilterTags([])"></app-boards-view>
+  <app-boards-view [tags]="tags" [boards]="boards" [filterTags]="getFilterTags()" (clearFilter)="updateFilterTags([])"></app-boards-view>
 </div>

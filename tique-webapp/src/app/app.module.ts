@@ -19,33 +19,37 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {TagEditDialogComponent} from "./tag-edit-dialog/tag-edit-dialog.component";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import { BoardEditDialogComponent } from './board-edit-dialog/board-edit-dialog.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
     AppComponent,
     TagsViewComponent,
     BoardsViewComponent,
-    TagEditDialogComponent
+    TagEditDialogComponent,
+    BoardEditDialogComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    RouterModule.forRoot([
-      {path: "", component: AppComponent},
-    ]),
-    MatCardModule,
-    MatGridListModule,
-    MatRippleModule,
-    MatTooltipModule,
-    MatButtonToggleModule,
-    MatIconModule,
-    MatButtonModule,
-    FormsModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatInputModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        RouterModule.forRoot([
+            {path: "", component: AppComponent},
+        ]),
+        MatCardModule,
+        MatGridListModule,
+        MatRippleModule,
+        MatTooltipModule,
+        MatButtonToggleModule,
+        MatIconModule,
+        MatButtonModule,
+        FormsModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

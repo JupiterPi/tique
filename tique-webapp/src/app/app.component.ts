@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   tags: Tag[] = [];
   boards: Board[] = [];
 
-  filterTags: Tag[] = [];
+  filterTags: string[] = [];
 
   constructor(private dataService: DataService) {}
 
@@ -32,7 +32,24 @@ export class AppComponent implements OnInit {
   updateFilterTags($event: Tag[]) {
     this.filterTags = [];
     for (let tag of $event) {
-      this.filterTags.push(tag);
+      this.filterTags.push(tag._id);
     }
+  }
+
+  getFilterTags() {
+    const filterTags: Tag[] = [];
+    const filterTagsToRemove: string[] = [];
+    for (let id of this.filterTags) {
+      const filterTag = this.tags.find(tag => tag._id == id);
+      if (filterTag == undefined) {
+        filterTagsToRemove.push(id);
+      } else {
+        filterTags.push(filterTag as Tag);
+      }
+    }
+    for (let idToRemove of filterTagsToRemove) {
+      this.filterTags.splice(this.filterTags.indexOf(idToRemove), 1);
+    }
+    return filterTags;
   }
 }

@@ -1,0 +1,50 @@
+<h2 mat-dialog-title *ngIf="data.createNew">Creating new board</h2>
+<h2 mat-dialog-title *ngIf="!data.createNew">Editing {{previousName}}</h2>
+<mat-dialog-content class="mat-typography">
+  <form>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="name" name="name">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+      <mat-label>Total ticks</mat-label>
+      <mat-select [(ngModel)]="total" name="total">
+        <mat-option [value]="4">4 ticks</mat-option>
+        <mat-option [value]="6">6 ticks</mat-option>
+        <mat-option [value]="8">8 ticks</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+
+    <p>Tags: </p>
+    <div id="tags-container">
+      <div *ngFor="let tag of tags" class="tag-card-container">
+        <img class="tag-card" [src]="dataService.getUserImageUrl(tag.icon)" [alt]="tag.name">
+        <div class="tag-card-over-container" [matTooltip]="tag.name" matTooltipPosition="above" (click)="removeTag(tag)">
+          <mat-icon class="tag-card-over">cancel</mat-icon>
+        </div>
+      </div>
+      <div class="tag-card-container tag-card-add-container">
+        <div class="tag-card-over-container" (click)="openAddTagSelect()">
+          <mat-icon class="tag-card-over">add_circle</mat-icon>
+        </div>
+      </div>
+    </div>
+    <mat-form-field class="tag-add-select" [class.hidden]="!openSelect">
+      <mat-label>Add Tag</mat-label>
+      <mat-select #addTagSelect="matSelect">
+        <mat-option *ngFor="let aTag of leftTags()" [value]="aTag" (click)="addTag(aTag)">{{aTag.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="warn" mat-dialog-close="delete" *ngIf="!data.createNew">Delete</button>
+  <button mat-button mat-dialog-close="cancel">Cancel</button>
+  <button [disabled]="!validateInput()" mat-stroked-button [mat-dialog-close]="assembleBoard()">{{data.createNew ? "Create" : "Save"}}</button>
+</mat-dialog-actions>

@@ -92,6 +92,15 @@ app.post("/board", async (req, res) => {
     res.status(200).send(result.insertedId);
 });
 
+// POST /tick
+app.post("/tick/:id", async (req, res) => {
+    const id = req.params.id;
+    const board = await db.collections.boardsCollection.findOne({ _id: new ObjectId(id) }) as Board;
+    const progress = board.progress == board.total ? 0 : board.progress + 1;
+    await db.collections.boardsCollection.updateOne({ _id: new ObjectId(id) }, { $set: { progress: progress }});
+    res.status(200).send();
+});
+
 // PUT /board
 app.put("/board/:id", async (req, res) => {
     const id = req.params.id;

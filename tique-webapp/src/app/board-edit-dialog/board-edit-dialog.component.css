@@ -1,0 +1,53 @@
+mat-dialog-content {
+  min-width: 250px;
+}
+
+#tags-container {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+}
+
+.tag-card-container {
+  height: 35px;
+  width: 35px;
+}
+
+.tag-card {
+  position: absolute;
+  height: 33px;
+  width: 33px;
+  border: 1px solid var(--clr-outline);
+  border-radius: 10px;
+}
+
+.tag-card-over-container {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.tag-card-container:not(.tag-card-add-container) .tag-card-over-container:not(:hover) .tag-card-over {
+  display: none;
+}
+
+.tag-card-over {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(20, 20, 20, 0.8);
+}
+
+.tag-add-select {
+  width: 0;
+  height: 0;
+  z-index: -20;
+  position: relative;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,6 +1,6 @@
 #navbar {
   height: 60px;
-  background-color: var(--clr-above-backgrond);
+  background-color: var(--clr-above-background);
 
   padding: 15px 20px;
 }
@@ -25,7 +25,7 @@
 /* --- containers --- */
 
 .view-header {
-  background-color: var(--clr-above-backgrond);
+  background-color: var(--clr-above-background);
   border-bottom: 1px solid var(--clr-outline);
   padding: 10px;
   font-size: 130%;
