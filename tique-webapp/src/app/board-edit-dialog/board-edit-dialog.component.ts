@@ -82,7 +82,7 @@ export class BoardEditDialogComponent {
     return {
       name: this.name,
       total: this.total,
-      progress: 0,
+      progress: this.data.board.progress,
       tags: tagIds,
       _id: ""
     };

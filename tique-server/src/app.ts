@@ -39,10 +39,10 @@ app.post("/tag", async (req, res) => {
 app.put("/tag/:id", async (req, res) => {
     const id = req.params.id;
     const tag = req.body;
-    await db.collections.tagsCollection.updateOne({ _id: new ObjectId(id) }, { $set: {
+    await db.collections.tagsCollection.replaceOne({ _id: new ObjectId(id) }, {
         name: tag.name,
         icon: tag.icon
-    }});
+    });
     res.status(200).send();
 });
 
@@ -105,7 +105,7 @@ app.post("/tick/:id", async (req, res) => {
 app.put("/board/:id", async (req, res) => {
     const id = req.params.id;
     const board = req.body;
-    await db.collections.boardsCollection.updateOne({ _id: new ObjectId(id) }, {
+    await db.collections.boardsCollection.replaceOne({ _id: new ObjectId(id) }, {
         name: board.name,
         total: board.total,
         progress: board.progress,

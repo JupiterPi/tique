@@ -22,3 +22,7 @@ body {
 .font-mat-icon {
   font-family: Material Icons, serif;
 }
+
+.smaller {
+  font-size: 70%;
+}

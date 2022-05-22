@@ -122,12 +122,12 @@ export class DataService {
         "626af1ac240b5c935f1cd930",
         "626af1c8240b5c935f1cd931"
       ],
-      "total": 4
+      "total": 6
     },
     {
       "_id": "626af2d4240b5c935f1cd93e",
       "name": "Board of Longer Name",
-      "total": 4,
+      "total": 8,
       "progress": 3,
       "tags": [
         "626af1aa240b5c935f1cd92f",
@@ -137,7 +137,7 @@ export class DataService {
     {
       "_id": "626af301240b5c935f1cd940",
       "name": "Angriff der Orks auf unvorbereitete Ordenskrieger",
-      "total": 4,
+      "total": 6,
       "progress": 4,
       "tags": [
         "626af1aa240b5c935f1cd92f",
